@@ -1,0 +1,30 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather app",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macnick/Weather-App.git"
+  },
+  "keywords": [
+    "Weather",
+    "mobile",
+    "desktop",
+    "application"
+  ],
+  "author": "Nick Haralampopoulos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macnick/Weather-App/issues"
+  },
+  "homepage": "https://github.com/macnick/Weather-App#readme"
+}
