@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
+    <title>Weather App</title>
   </head>
 
   <body>
     <div class="container">
       <div class="content">
-        <h2 id="location">Volos</h2>
-        <h4 id="description">Mostly Cloudy</h4>
-        <h1 id="temp">13º C</h1>
+        <div id="location">Volos, GR</div>
+        <div id="description">Mostly Cloudy</div>
+        <div id="temp">13º C</div>
         <div class="feels">Feels Like: 8 ºC</div>
-        <div class="info">Min: 8 ºC Max: 14 ºC</div>
+        <div class="info">Min: 8 ºC - Max: 14 ºC</div>
         <div class="units">ºC / ºF</div>
         <div class="search">
           <input type="text" name="Search city" id="search" />
-          <input type="button" value="Search" />
+          <button type="submit">Search</button>
         </div>
       </div>
     </div>
