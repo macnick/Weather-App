@@ -1,0 +1,29 @@
+:root {
+  --bgnd: url(/dist/img/atmosphere.jpeg);
+}
+
+body {
+  background-image: var(--bgnd);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* h1 {
+  color: #e11;
+} */
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-top: 15%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 2%;
+}
