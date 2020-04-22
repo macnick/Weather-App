@@ -54,12 +54,17 @@ const control = ((ui, data) => {
   };
 
   const handleClick = (e) => {
-    let response = myWeather(input.value);
+    if (input.value) myWeather(input.value);
     console.log(e, input.value);
   };
 
-  myWeather('London');
+  const handleKey = (e) => {
+    if (e.key == 'Enter' && input.value) myWeather(input.value);
+  };
+
+  myWeather();
 
   let input = document.getElementById('search');
   document.getElementById('submit').addEventListener('click', handleClick);
+  window.addEventListener('keydown', handleKey);
 })(ui, data);
