@@ -36,7 +36,7 @@ Practice Promises and async/await while creating a weather forecast site using t
 
 ## Live Demo
 
-[Live Demo Link](https://macnick.github.io/weather-app/)
+[Live Demo Link](https://macexperts.gr/dist/)
 
 ## Getting Started
 
