@@ -1,4 +1,14 @@
 const ui = (() => {
+  const setBackground = (desc) => {
+    // Test code
+
+    document.documentElement.style.setProperty(
+      '--bgnd',
+      `url(/dist/img/${desc.toLowerCase()}.jpeg)`
+    );
+    // end test
+  };
+
   const renderData = (weather, unit = 'C') => {
     let { temp, feels_like, temp_min, temp_max } = weather.main;
     if (unit == 'F') {
@@ -8,7 +18,8 @@ const ui = (() => {
       temp_max = (temp_max * 9) / 5 + 32;
     }
     let name = weather.name;
-    let { description, icon } = weather.weather[0];
+    let { main, description, icon } = weather.weather[0];
+    setBackground(main);
     description = description.replace(/\b\w/g, (m) => m.toUpperCase());
 
     console.log(temp_min, temp_max, name, description, icon);
