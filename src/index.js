@@ -2,20 +2,25 @@ import ui from './ui';
 import data from './data';
 
 const control = ((ui, data) => {
+  let weatherData,
+    units = 'C';
   const myWeather = async (city = 'Athens', unit = 'metric') => {
-    let response = await data.getWeather(city, unit);
+    const response = await data.getWeather(city, unit);
     ui.renderData(response);
     console.log('in control', response);
+    weatherData = await response;
     return response;
   };
 
   const handleClick = (e) => {
-    if (input.value) myWeather(input.value, unit);
     if (e.target.id == 'units') {
-      data.changeUnits();
-      ui.updateUnits();
+      units = units == 'C' ? 'F' : 'C';
+      ui.renderData(weatherData, units);
+    } else if (input.value) {
+      units = 'C';
+      myWeather(input.value);
     }
-    console.log(e.target.id, input.value, response);
+    console.log(e.target.id, input.value, weatherData);
   };
 
   const handleKey = (e) => {

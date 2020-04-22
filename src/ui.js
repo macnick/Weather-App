@@ -1,6 +1,12 @@
 const ui = (() => {
   const renderData = (weather, unit = 'C') => {
-    const { temp, feels_like, temp_min, temp_max } = weather.main;
+    let { temp, feels_like, temp_min, temp_max } = weather.main;
+    if (unit == 'F') {
+      temp = (temp * 9) / 5 + 32;
+      feels_like = (feels_like * 9) / 5 + 32;
+      temp_min = (temp_min * 9) / 5 + 32;
+      temp_max = (temp_max * 9) / 5 + 32;
+    }
     let name = weather.name;
     let { description, icon } = weather.weather[0];
     description = description.replace(/\b\w/g, (m) => m.toUpperCase());
@@ -23,6 +29,9 @@ const ui = (() => {
     document.getElementById(
       'info'
     ).innerText = `Min: ${~~temp_min} º${unit} - Max: ${~~temp_max} º${unit}`;
+    document.getElementById('units').innerText = `Change to º${
+      unit == 'F' ? 'C' : 'F'
+    }`;
   };
 
   return { renderData };
