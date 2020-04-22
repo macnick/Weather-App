@@ -1,9 +1,12 @@
 import ui from './ui';
 import data from './data';
 
+/* eslint-disable no-unused-vars */
 const control = ((ui, data) => {
-  let weatherData,
-    units = 'C';
+  let weatherData;
+  let units = 'C';
+  const input = document.getElementById('search');
+
   const myWeather = async (city = 'Athens', unit = 'metric') => {
     const response = await data.getWeather(city, unit);
     ui.renderData(response);
@@ -12,8 +15,8 @@ const control = ((ui, data) => {
   };
 
   const handleClick = (e) => {
-    if (e.target.id == 'units') {
-      units = units == 'C' ? 'F' : 'C';
+    if (e.target.id === 'units') {
+      units = units === 'C' ? 'F' : 'C';
       ui.renderData(weatherData, units);
     } else if (input.value) {
       units = 'C';
@@ -22,12 +25,11 @@ const control = ((ui, data) => {
   };
 
   const handleKey = (e) => {
-    if (e.key == 'Enter' && input.value) myWeather(input.value);
+    if (e.key === 'Enter' && input.value) myWeather(input.value);
   };
 
   myWeather();
 
-  let input = document.getElementById('search');
   document.getElementById('submit').addEventListener('click', handleClick);
   document.getElementById('units').addEventListener('click', handleClick);
   window.addEventListener('keydown', handleKey);
