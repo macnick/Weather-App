@@ -1,37 +1,36 @@
 # Weather-App
-Create a weather forecast site using the weather API 
+
+Create a weather forecast site using the weather API
 
 ## Features
 
-1. User can create see the weather forecast
-2. User can input a city to check the weather
-
+1. User can input a city to check the weather
+2. User can click a button to toggle between C and F
 
 ## Future Feature
 
-1. Improve the UI
-2. Add a feature to ...
+1. Add support for more languages
+2. Add an icon next to weather description
 
 ## Screenshots
 
 ### Desktop/Laptop device
 
-<img src="/dist/images/" alt="">
+<img src="/dist/img/iMac.jpg" alt="">
 
 ### Tablets
 
-<img src="/dist/images/m.PNG" alt="">
+<img src="/dist/img/iPad.jpg" alt="">
 
 ### Mobile
 
-<img src="/dist/images/s.PNG" alt="">
+<img src="/dist/img/iPhone.jpg" alt="">
 
 ## Built With
 
 - HTML,
 - CSS,
-- Javascript es6
-- UI Kit for styling and responsiveness
+- Javascript ES6
 
 ## Live Demo
 
@@ -43,8 +42,8 @@ To get a local copy up and running follow these simple example steps.
 
 1. `git clone https://github.com/macnick/Weather-App.git`
 2. `cd Weather-App`
-4. `npm i`
-6. Use live server on VSCode to open the index.html with your favorite browser
+3. `npm i`
+4. Use live server on VSCode to open the index.html with your favorite browser
 
 ### Prerequisites
 

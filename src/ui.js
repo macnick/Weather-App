@@ -1,12 +1,9 @@
 const ui = (() => {
   const setBackground = (desc) => {
-    // Test code
-
     document.documentElement.style.setProperty(
       '--bgnd',
       `url(/dist/img/${desc.toLowerCase()}.jpeg)`
     );
-    // end test
   };
 
   const renderData = (weather, unit = 'C') => {
