@@ -86,14 +86,39 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/data.js":
+/*!*********************!*\
+  !*** ./src/data.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst data = (() => {\n  const getWeather = async (city, unit) => {\n    let KEY = '4e3a46238240176b8e18b2672de5b78b';\n    const weather = await fetch(\n      ` https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&APPID=${KEY}`,\n      { mode: 'cors' }\n    );\n    const weatherData = await weather.json();\n    return weatherData;\n  };\n\n  return {\n    getWeather,\n  };\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (data);\n\n\n//# sourceURL=webpack:///./src/data.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const ui = (() => {\n  const renderData = (weather, unit = 'C') => {\n    const { temp, feels_like, temp_min, temp_max } = weather.main;\n    let name = weather.name;\n    let { description, icon } = weather.weather[0];\n    description = description.replace(/\\b\\w/g, (m) => m.toUpperCase());\n\n    console.log(temp_min, temp_max, name, description, icon);\n\n    document.getElementById(\n      'location'\n    ).innerText = `${name}, ${weather.sys.country}`;\n    let d = (document.getElementById(\n      'description'\n    ).innerHTML = `${description}`);\n    let image = document.createElement('img');\n    image.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;\n    // d.appendChild(image);\n    document.getElementById('temp').innerText = `${~~temp} º${unit}`;\n    document.getElementById(\n      'feels'\n    ).innerText = `Feels like: ${~~feels_like} º${unit}`;\n    document.getElementById(\n      'info'\n    ).innerText = `Min: ${~~temp_min} º${unit} - Max: ${~~temp_max} º${unit}`;\n  };\n\n  return { renderData };\n})();\n\nconst data = (() => {\n  const getWeather = async (city, unit) => {\n    let KEY = '4e3a46238240176b8e18b2672de5b78b';\n    const weather = await fetch(\n      ` https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&APPID=${KEY}`,\n      { mode: 'cors' }\n    );\n    const weatherData = await weather.json();\n    // console.log(weatherData);\n    return weatherData;\n  };\n\n  return {\n    getWeather,\n  };\n})();\n\nconst control = ((ui, data) => {\n  const myWeather = async (city = 'Athens', unit = 'metric') => {\n    let response = await data.getWeather(city, unit);\n    ui.renderData(response);\n    console.log('in control', response);\n    return response;\n  };\n\n  const handleClick = (e) => {\n    if (input.value) myWeather(input.value);\n    console.log(e, input.value);\n  };\n\n  const handleKey = (e) => {\n    if (e.key == 'Enter' && input.value) myWeather(input.value);\n  };\n\n  myWeather();\n\n  let input = document.getElementById('search');\n  document.getElementById('submit').addEventListener('click', handleClick);\n  window.addEventListener('keydown', handleKey);\n})(ui, data);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui */ \"./src/ui.js\");\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ \"./src/data.js\");\n\n\n\nconst control = ((ui, data) => {\n  const myWeather = async (city = 'Athens', unit = 'metric') => {\n    let response = await data.getWeather(city, unit);\n    ui.renderData(response);\n    console.log('in control', response);\n    return response;\n  };\n\n  const handleClick = (e) => {\n    if (input.value) myWeather(input.value, unit);\n    if (e.target.id == 'units') {\n      data.changeUnits();\n      ui.updateUnits();\n    }\n    console.log(e.target.id, input.value, response);\n  };\n\n  const handleKey = (e) => {\n    if (e.key == 'Enter' && input.value) myWeather(input.value);\n  };\n\n  myWeather();\n\n  let input = document.getElementById('search');\n  document.getElementById('submit').addEventListener('click', handleClick);\n  document.getElementById('units').addEventListener('click', handleClick);\n  window.addEventListener('keydown', handleKey);\n})(_ui__WEBPACK_IMPORTED_MODULE_0__[\"default\"], _data__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/ui.js":
+/*!*******************!*\
+  !*** ./src/ui.js ***!
+  \*******************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst ui = (() => {\n  const renderData = (weather, unit = 'C') => {\n    const { temp, feels_like, temp_min, temp_max } = weather.main;\n    let name = weather.name;\n    let { description, icon } = weather.weather[0];\n    description = description.replace(/\\b\\w/g, (m) => m.toUpperCase());\n\n    console.log(temp_min, temp_max, name, description, icon);\n\n    document.getElementById(\n      'location'\n    ).innerText = `${name}, ${weather.sys.country}`;\n    let d = (document.getElementById(\n      'description'\n    ).innerHTML = `${description}`);\n    let image = document.createElement('img');\n    image.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;\n    // d.appendChild(image);\n    document.getElementById('temp').innerText = `${~~temp} º${unit}`;\n    document.getElementById(\n      'feels'\n    ).innerText = `Feels like: ${~~feels_like} º${unit}`;\n    document.getElementById(\n      'info'\n    ).innerText = `Min: ${~~temp_min} º${unit} - Max: ${~~temp_max} º${unit}`;\n  };\n\n  return { renderData };\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ui);\n\n\n//# sourceURL=webpack:///./src/ui.js?");
 
 /***/ })
 
