@@ -7,16 +7,26 @@ const ui = (() => {
     document.getElementById(
       'location'
     ).innerText = `${name}, ${weather.sys.country}`;
-    document.getElementById('description').innerText = `${description}`;
+    let d = (document.getElementById(
+      'description'
+    ).innerHTML = `${description}`);
+    let image = document.createElement('img');
+    image.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    // d.appendChild(image);
     document.getElementById('temp').innerText = `${~~temp} º${unit}`;
-    document.getElementById('feels').innerText = `Feels like: ${feels_like}`;
+    document.getElementById(
+      'feels'
+    ).innerText = `Feels like: ${~~feels_like} º${unit}`;
+    document.getElementById(
+      'info'
+    ).innerText = `Min: ${~~temp_min} º${unit} - Max: ${~~temp_max} º${unit}`;
   };
 
   return { renderData };
 })();
 
 const data = (() => {
-  const getWeather = async (city = 'Athens', unit = 'metric') => {
+  const getWeather = async (city, unit) => {
     let KEY = '4e3a46238240176b8e18b2672de5b78b';
     const weather = await fetch(
       ` https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&APPID=${KEY}`,
@@ -33,11 +43,20 @@ const data = (() => {
 })();
 
 const control = ((ui, data) => {
-  const myWeather = async (city) => {
-    let response = await data.getWeather();
+  const myWeather = async (city = 'Athens', unit = 'metric') => {
+    let response = await data.getWeather(city, unit);
     ui.renderData(response);
     console.log('in control', response);
     return response;
   };
-  myWeather();
+
+  const handleClick = (e) => {
+    let response = myWeather(input.value);
+    console.log(e, input.value);
+  };
+
+  myWeather('London');
+
+  let input = document.getElementById('search');
+  document.getElementById('submit').addEventListener('click', handleClick);
 })(ui, data);
