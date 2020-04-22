@@ -1,5 +1,10 @@
+const webpack = require('webpack');
+require('dotenv').config();
 module.exports = {
   mode: 'development',
+  node: {
+    fs: 'empty',
+  },
   module: {
     rules: [
       {
@@ -16,4 +21,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+    }),
+  ],
 };

@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst data = (() => {\n  const getWeather = async (city, unit) => {\n    let KEY = '4e3a46238240176b8e18b2672de5b78b';\n    const weather = await fetch(\n      ` https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&APPID=${KEY}`,\n      { mode: 'cors' }\n    );\n    const weatherData = await weather.json();\n    return weatherData;\n  };\n\n  return {\n    getWeather,\n  };\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (data);\n\n\n//# sourceURL=webpack:///./src/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst data = (() => {\n  const getWeather = async (city, unit) => {\n    const KEY = \"4e3a46238240176b8e18b2672de5b78b\";\n    const weather = await fetch(\n      ` https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&APPID=${KEY}`,\n      { mode: 'cors' }\n    );\n    const weatherData = await weather.json();\n    return weatherData;\n  };\n\n  return {\n    getWeather,\n  };\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (data);\n\n\n//# sourceURL=webpack:///./src/data.js?");
 
 /***/ }),
 
