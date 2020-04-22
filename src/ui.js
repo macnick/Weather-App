@@ -17,9 +17,8 @@ const ui = (() => {
     let name = weather.name;
     let { main, description, icon } = weather.weather[0];
     setBackground(main);
-    description = description.replace(/\b\w/g, (m) => m.toUpperCase());
 
-    console.log(temp_min, temp_max, name, description, icon);
+    description = description.replace(/\b\w/g, (m) => m.toUpperCase());
 
     document.getElementById(
       'location'
@@ -27,9 +26,7 @@ const ui = (() => {
     let d = (document.getElementById(
       'description'
     ).innerHTML = `${description}`);
-    let image = document.createElement('img');
-    image.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    // d.appendChild(image);
+
     document.getElementById('temp').innerText = `${~~temp} º${unit}`;
     document.getElementById(
       'feels'

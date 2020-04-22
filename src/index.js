@@ -7,7 +7,6 @@ const control = ((ui, data) => {
   const myWeather = async (city = 'Athens', unit = 'metric') => {
     const response = await data.getWeather(city, unit);
     ui.renderData(response);
-    console.log('in control', response);
     weatherData = await response;
     return response;
   };
@@ -20,7 +19,6 @@ const control = ((ui, data) => {
       units = 'C';
       myWeather(input.value);
     }
-    console.log(e.target.id, input.value, weatherData);
   };
 
   const handleKey = (e) => {
