@@ -35,6 +35,7 @@ const control = ((ui, data) => {
   input.addEventListener('click', handleClick);
   document.getElementById('submit').addEventListener('click', handleClick);
   document.getElementById('units').addEventListener('click', handleClick);
+
   window.addEventListener('keydown', handleKey);
 
 })(ui, data);
