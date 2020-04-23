@@ -37,9 +37,7 @@ const ui = (() => {
     document.getElementById(
       'feels',
     ).innerText = `Feels like: ${Math.round(feels_like)} º${unit}`;
-    document.getElementById(
-      'info',
-    ).innerText = `Min: ${Math.round(temp_min)} º${unit} - Max: ${Math.round(temp_max)} º${unit}`;
+    document.getElementById('info').innerText = `Min: ${Math.round(temp_min)} º${unit} - Max: ${Math.round(temp_max)} º${unit}`;
     document.getElementById('units').innerText = `Change to º${
       unit === 'F' ? 'C' : 'F'}`;
   };
