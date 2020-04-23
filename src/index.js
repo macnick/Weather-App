@@ -18,6 +18,8 @@ const control = ((ui, data) => {
     if (e.target.id === 'units') {
       units = units === 'C' ? 'F' : 'C';
       ui.renderData(weatherData, units);
+    } else if (e.target.id == 'search') {
+      text.value = '';
     } else if (input.value) {
       units = 'C';
       myWeather(input.value);
@@ -30,7 +32,10 @@ const control = ((ui, data) => {
 
   myWeather();
 
+  let text = document.getElementById('search');
+  text.addEventListener('click', handleClick);
   document.getElementById('submit').addEventListener('click', handleClick);
   document.getElementById('units').addEventListener('click', handleClick);
+
   window.addEventListener('keydown', handleKey);
 })(ui, data);
