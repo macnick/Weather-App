@@ -27,4 +27,10 @@ module.exports = {
       'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
     }),
   ],
+  resolve: {
+    modules: [
+      "node_modules",
+      path.resolve(__dirname, "app")
+    ],
+  }
 };
