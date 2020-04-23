@@ -37,5 +37,4 @@ const control = ((ui, data) => {
   document.getElementById('units').addEventListener('click', handleClick);
 
   window.addEventListener('keydown', handleKey);
-
 })(ui, data);
