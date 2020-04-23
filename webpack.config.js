@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 require('dotenv').config();
 
@@ -29,8 +30,8 @@ module.exports = {
   ],
   resolve: {
     modules: [
-      "node_modules",
-      path.resolve(__dirname, "app")
+      'node_modules',
+      path.resolve(__dirname, 'app')
     ],
   }
 };
