@@ -5,7 +5,7 @@ import data from './data';
 const control = ((ui, data) => {
   let weatherData;
   let units = 'C';
-  let input = document.getElementById('search');
+  const input = document.getElementById('search');
 
   const myWeather = async (city = 'Athens', unit = 'metric') => {
     const response = await data.getWeather(city, unit);
@@ -18,7 +18,7 @@ const control = ((ui, data) => {
     if (e.target.id === 'units') {
       units = units === 'C' ? 'F' : 'C';
       ui.renderData(weatherData, units);
-    } else if (e.target.id == 'search') {
+    } else if (e.target.id === 'search') {
       input.value = '';
     } else if (input.value) {
       units = 'C';
@@ -35,6 +35,7 @@ const control = ((ui, data) => {
   input.addEventListener('click', handleClick);
   document.getElementById('submit').addEventListener('click', handleClick);
   document.getElementById('units').addEventListener('click', handleClick);
+
   window.addEventListener('keydown', handleKey);
 
 })(ui, data);
