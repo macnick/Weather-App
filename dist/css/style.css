@@ -17,6 +17,7 @@ div {
 }
 
 input {
+  margin: -18px 0 2px 0;
   width: 80%;
   height: 30px;
   font-size: 1em;
@@ -41,6 +42,9 @@ button:hover {
   color: #f11;
 }
 
+img {
+  margin: -10px 0 -26px 0;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -49,7 +53,7 @@ button:hover {
 .content {
   color: #fff;
   background-color: var(--transparency);
-  margin-top: 10%;
+  margin-top: 9%;
   text-align: center;
   padding: 26px;
   border-radius: 2%;

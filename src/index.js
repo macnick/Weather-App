@@ -8,10 +8,14 @@ const control = ((ui, data) => {
   const input = document.getElementById('search');
 
   const myWeather = async (city = 'Athens', unit = 'metric') => {
-    const response = await data.getWeather(city, unit);
-    ui.renderData(response);
-    weatherData = await response;
-    return response;
+    try {
+      const response = await data.getWeather(city, unit);
+      ui.renderData(response);
+      weatherData = await response;
+      return response;
+    } catch (e) {
+      alert('Can not find this city', e);
+    }
   };
 
   const handleClick = (e) => {
@@ -30,7 +34,9 @@ const control = ((ui, data) => {
     if (e.key === 'Enter' && input.value) myWeather(input.value);
   };
 
-  myWeather();
+  let myass = myWeather();
+  // let obj = myass.then(console.log);
+
 
   input.addEventListener('click', handleClick);
   document.getElementById('submit').addEventListener('click', handleClick);
