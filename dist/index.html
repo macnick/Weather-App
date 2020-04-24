@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <div id="location">Volos, GR</div>
+      <div id="temp">13º C</div>
+      <div id="description">Mostly Cloudy</div>
+      <img src="https://openweathermap.org/img/wn/02d@1x.png">
+      <div id="feels">Feels Like: 8 ºC</div>
+      <div id="info">Min: 8 ºC - Max: 14 ºC</div>
+      <div>
+        <button id="units">Change to ºF</button>
+      </div>
+      <div class="search">
+        <input type="text" name="Search city" id="search" placeholder="Athens" />
+        <button type="submit" id="submit">Search</button>
+      </div>
+    </div>
+  </div>
+  <script src="/dist/main.js"></script>
+</body>
+
+</html>
