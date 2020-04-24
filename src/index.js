@@ -2,15 +2,17 @@ import ui from './ui';
 import data from './data';
 
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-confusing-arrow */
 const control = ((ui, data) => {
   let weatherData;
   let units = 'C';
+  const setUnit = (str) => units === 'C' ? 'metric' : 'imperial';
   const input = document.getElementById('search');
 
   const myWeather = async (city = 'Athens', unit = 'metric') => {
     try {
       const response = await data.getWeather(city, unit);
-      ui.renderData(response);
+      ui.renderData(response, units);
       weatherData = await response;
       return response;
     } catch (e) {
@@ -21,19 +23,18 @@ const control = ((ui, data) => {
   const handleClick = (e) => {
     if (e.target.id === 'units') {
       units = units === 'C' ? 'F' : 'C';
-      let unit = units === 'C' ? 'metric' : 'imperial';
-      data.getWeather(weatherData.name, unit);
-      ui.renderData(weatherData, units);
+      myWeather(weatherData.name, setUnit(units));
     } else if (e.target.id === 'search') {
       input.value = '';
     } else if (input.value) {
-      units = 'C';
-      myWeather(input.value);
+      myWeather(input.value, setUnit(units));
     }
   };
 
   const handleKey = (e) => {
-    if (e.key === 'Enter' && input.value) myWeather(input.value);
+    if (e.key === 'Enter' && input.value) {
+      myWeather(input.value, setUnit(units));
+    }
   };
 
   myWeather();
