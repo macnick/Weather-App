@@ -26,7 +26,7 @@ const ui = (() => {
 
     description = description.replace(/\b\w/g, (m) => m.toUpperCase());
     const img = document.querySelector('img');
-    img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
+    img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     document.getElementById(
       'location',
     ).innerText = `${name}, ${weather.sys.country}`;

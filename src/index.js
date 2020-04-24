@@ -12,10 +12,10 @@ const control = ((ui, data) => {
       const response = await data.getWeather(city, unit);
       ui.renderData(response);
       weatherData = await response;
-      return response;
     } catch (e) {
-      alert('Can not find this city', e);
+      return 'Can not find this city';
     }
+    return response;
   };
 
   const handleClick = (e) => {
@@ -34,9 +34,7 @@ const control = ((ui, data) => {
     if (e.key === 'Enter' && input.value) myWeather(input.value);
   };
 
-  let myass = myWeather();
-  // let obj = myass.then(console.log);
-
+  myWeather();
 
   input.addEventListener('click', handleClick);
   document.getElementById('submit').addEventListener('click', handleClick);
