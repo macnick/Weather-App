@@ -12,15 +12,17 @@ const control = ((ui, data) => {
       const response = await data.getWeather(city, unit);
       ui.renderData(response);
       weatherData = await response;
+      return response;
     } catch (e) {
       return 'Can not find this city';
     }
-    return response;
   };
 
   const handleClick = (e) => {
     if (e.target.id === 'units') {
       units = units === 'C' ? 'F' : 'C';
+      let unit = units === 'C' ? 'metric' : 'imperial';
+      data.getWeather(weatherData.name, unit);
       ui.renderData(weatherData, units);
     } else if (e.target.id === 'search') {
       input.value = '';

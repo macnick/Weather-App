@@ -13,12 +13,6 @@ const ui = (() => {
     let {
       temp, feels_like, temp_min, temp_max,
     } = weather.main;
-    if (unit === 'F') {
-      temp = (temp * 9) / 5 + 32;
-      feels_like = (feels_like * 9) / 5 + 32;
-      temp_min = (temp_min * 9) / 5 + 32;
-      temp_max = (temp_max * 9) / 5 + 32;
-    }
     const { name } = weather;
     let { main, description, icon } = weather.weather[0];
 
