@@ -13,11 +13,11 @@ body {
 }
 
 div {
-  margin-top: 20px;
+  margin-top: 4%;
 }
 
 input {
-  margin: -18px 0 2px 0;
+  margin: -8px 0 2px 0;
   width: 80%;
   height: 30px;
   font-size: 1em;
@@ -53,9 +53,9 @@ img {
 .content {
   color: #fff;
   background-color: var(--transparency);
-  margin-top: 9%;
+  margin-top: 5%;
   text-align: center;
-  padding: 26px;
+  padding: 24px;
   border-radius: 2%;
 }
 
