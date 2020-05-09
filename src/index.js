@@ -38,7 +38,7 @@ const control = ((ui, data) => {
   };
 
   myWeather();
-
+  ui.title('Weather App', 'WOW! a weather app!')
   input.addEventListener('click', handleClick);
   document.getElementById('submit').addEventListener('click', handleClick);
   document.getElementById('units').addEventListener('click', handleClick);
