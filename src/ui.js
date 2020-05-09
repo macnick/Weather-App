@@ -37,7 +37,12 @@ const ui = (() => {
       unit === 'F' ? 'C' : 'F'}`;
   };
 
-  return { renderData };
+  const title = (on, off) => {
+    window.onfocus = () => document.title = on;
+    window.onblur = () => document.title = off;
+  };
+
+  return { renderData, title };
 })();
 
 export default ui;
