@@ -74,7 +74,7 @@ Feel free to check the [issues page](https://github.com/macnick/Weather-App/issu
 
 ## Show your support
 
-if (you like this project) { please give it a ⭐️ !}
+if (you liked this project) { please give it a ⭐️ !}
 
 ## Acknowledgments
 
