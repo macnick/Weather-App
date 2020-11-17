@@ -1,18 +1,15 @@
-
 const ui = (() => {
   const setBackground = (desc) => {
     document.documentElement.style.setProperty(
       '--bgnd',
-      `url(/dist/img/${desc.toLowerCase()}.jpeg)`,
+      `url(/dist/img/${desc.toLowerCase()}.jpeg)`
     );
   };
 
   /* eslint-disable camelcase */
   /* eslint-disable prefer-const */
   const renderData = (weather, unit = 'C') => {
-    let {
-      temp, feels_like, temp_min, temp_max,
-    } = weather.main;
+    let { temp, feels_like, temp_min, temp_max } = weather.main;
     const { name } = weather;
     let { main, description, icon } = weather.weather[0];
 
@@ -22,24 +19,25 @@ const ui = (() => {
     const img = document.querySelector('img');
     img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     document.getElementById(
-      'location',
+      'location'
     ).innerText = `${name}, ${weather.sys.country}`;
-    (document.getElementById(
-      'description',
-    ).innerHTML = `${description}`);
+    document.getElementById('description').innerHTML = `${description}`;
 
     document.getElementById('temp').innerText = `${Math.round(temp)} º${unit}`;
-    document.getElementById(
-      'feels',
-    ).innerText = `Feels like: ${Math.round(feels_like)} º${unit}`;
-    document.getElementById('info').innerText = `Min: ${Math.round(temp_min)} º${unit} - Max: ${Math.round(temp_max)} º${unit}`;
+    document.getElementById('feels').innerText = `Feels like: ${Math.round(
+      feels_like
+    )} º${unit}`;
+    document.getElementById('info').innerText = `Min: ${Math.round(
+      temp_min
+    )} º${unit} - Max: ${Math.round(temp_max)} º${unit}`;
     document.getElementById('units').innerText = `Change to º${
-      unit === 'F' ? 'C' : 'F'}`;
+      unit === 'F' ? 'C' : 'F'
+    }`;
   };
 
   const title = (on, off) => {
-    window.onfocus = () => document.title = on;
-    window.onblur = () => document.title = off;
+    window.onfocus = () => (document.title = on);
+    window.onblur = () => (document.title = off);
   };
 
   return { renderData, title };
